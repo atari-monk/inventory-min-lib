@@ -42,7 +42,7 @@ public class ItemInsertArgs
     [Option('l', "length")]
 	public double? Length { get; set; }
 
-    [Option('h', "heigth")]
+    [Option('e', "heigth")]
 	public double? Heigth { get; set; }
 
     [Option("depth")]
@@ -62,7 +62,7 @@ public class ItemInsertArgs
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
 	public int? TagId { get; set; }
 
-    [Option('e', "StateId")
+    [Option('a', "StateId")
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
 	public int? StateId { get; set; }
 }
