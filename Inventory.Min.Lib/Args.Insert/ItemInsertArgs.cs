@@ -52,18 +52,18 @@ public class ItemInsertArgs
     [Option("diameter")]
 	public double? Diameter { get; set; }
 
-    [Option("VolumeUnitId")
+    [Option("volumeUnitId")
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
 	public int? VolumeUnitId { get; set; } = 1;
 
     [Option('v', "volume")]
 	public double? Volume { get; set; }
 
-    [Option('t', "TagId")
+    [Option('t', "tagId")
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
 	public int? TagId { get; set; }
 
-    [Option('a', "StateId")
+    [Option('a', "stateId")
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
 	public int? StateId { get; set; }
 }
