@@ -21,7 +21,8 @@ public class ItemInsertArgs
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
 	public int? CategoryId { get; set; }
 
-    [Option('p', "purchaseDate")]
+    [Option('p', "purchaseDate"
+		, Description = DateFormat)]
 	public DateTime? PurchaseDate { get; set; }
 
     [Option("currencyId")]
@@ -33,7 +34,7 @@ public class ItemInsertArgs
     [Option('s', "sellPrice")]
 	public decimal? SellPrice { get; set; }
 
-    [Option("imagePath")]
+    [Option('i', "imagePath")]
 	public string? ImagePath { get; set; }
 
     [Option("lengthUnitId")]
