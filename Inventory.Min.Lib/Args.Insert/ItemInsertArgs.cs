@@ -19,7 +19,7 @@ public class ItemInsertArgs
 
     [Option('q', "quantity")
         , Range(0, int.MaxValue, ErrorMessage = IdError)]
-    public string? Quantity { get; set; }
+    public int? Quantity { get; set; }
 
 	[Option('c', "categoryId")
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
