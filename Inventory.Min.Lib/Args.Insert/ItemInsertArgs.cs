@@ -70,4 +70,8 @@ public class ItemInsertArgs
     [Option('a', "stateId")
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
 	public int? StateId { get; set; }
+
+    [Option('r', "parentId")
+        , Range(1, int.MaxValue, ErrorMessage = IdError)]
+	public int? ParentId { get; set; }
 }
