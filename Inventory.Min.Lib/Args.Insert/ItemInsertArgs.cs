@@ -74,4 +74,12 @@ public class ItemInsertArgs
     [Option('r', "parentId")
         , Range(1, int.MaxValue, ErrorMessage = IdError)]
 	public int? ParentId { get; set; }
+
+    [Option("mass")
+        , Range(0, int.MaxValue, ErrorMessage = IdError)]
+	public double? Mass { get; set; }
+
+    [Option("massUnitId")
+        , Range(1, int.MaxValue, ErrorMessage = IdError)]
+	public int? MassUnitId { get; set; } = 3;
 }
