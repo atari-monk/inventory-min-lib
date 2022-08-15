@@ -12,7 +12,7 @@ public class ItemFilterArgs
         , longName: "purchaseDate")]
     public DateTime? PurchaseDate { get; set; }
 
-     [Option(
+    [Option(
         shortName: 'c'
         , longName: "categoryId")]
     public int? CategoryId { get; set; }
