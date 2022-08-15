@@ -31,8 +31,10 @@ public class ItemFilter
 
     private Expression<Func<Item, bool>> GetFilterByPurchaseDate()
     {
-        ArgumentNullException.ThrowIfNull(FilterArgs.PurchaseDate);
-        return l => l.PurchaseDate.HasValue
-            && l.PurchaseDate.Value.Date.Equals(FilterArgs.PurchaseDate.Value.Date);
+        if (FilterArgs.PurchaseDate.HasValue) 
+            return item => item.PurchaseDate.HasValue
+                && item.PurchaseDate.Value.Date.Equals(
+                    FilterArgs.PurchaseDate.Value.Date);
+        return item => true;
     }    
 }
