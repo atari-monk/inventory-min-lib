@@ -18,5 +18,6 @@ public class AppMappings
         c => 
         {
             c.CreateMap<ItemInsertArgs, Item>();
+            c.CreateMap<ItemUpdateArgs, ItemUpdate>();
         });
 }

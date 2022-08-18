@@ -21,7 +21,8 @@ public class AppCommands
     private void RegisterInsertCommand()
     {
         Container
+            .RegisterSingleton<IReadCommand<ItemFilterArgs>, ItemReadCommand>()
             .RegisterSingleton<IInsertCommand<ItemInsertArgs>, ItemInsertCommand>()
-            .RegisterSingleton<IReadCommand<ItemFilterArgs>, ItemReadCommand>();
+            .RegisterSingleton<IUpdateCommand<ItemUpdateArgs>, ItemUpdateCommand>();
     }
 }
