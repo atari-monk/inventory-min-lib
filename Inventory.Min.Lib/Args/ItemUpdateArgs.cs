@@ -7,8 +7,12 @@ using ModelHelper;
 namespace Inventory.Min.Lib;
 
 [AtLeastOneProperty(
-    nameof(Item.Name)
+	nameof(Item.Name)
     , nameof(Item.Description)
+	, nameof(Item.Quantity)
+	, nameof(Item.CategoryId)
+	, nameof(Item.PurchaseDate)
+	, nameof(Item.CurrencyId)
     , ErrorMessage = UpdateError)]
 public class ItemUpdateArgs
     : Model
@@ -16,7 +20,8 @@ public class ItemUpdateArgs
         , IId
 {
     private const string UpdateError = 
-        "You must supply Name or Description";
+        "You must supply Name or Description or Quantity"
+		+ "or CategoryId or PurchaseDate or CurrencyId";
 
     [Operand(
         "id")
@@ -33,4 +38,25 @@ public class ItemUpdateArgs
         'd'
         , "desc")]
     public string? Description { get; set; }
+	
+	[Option(
+        'q'
+        , "quantity")]
+    public int? Quantity { get; set; }
+	
+	[Option(
+        'c'
+        , "categoryId")]
+    public int? CategoryId { get; set; }
+	
+	[Option(
+        'p'
+        , "purchaseDate"
+		, Description = DateFormat)]
+    public DateTime? PurchaseDate { get; set; }
+	
+	[Option(
+        'u'
+        , "currencyId")]
+    public int? CurrencyId { get; set; }
 }
