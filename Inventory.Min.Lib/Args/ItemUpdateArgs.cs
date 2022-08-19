@@ -13,6 +13,21 @@ namespace Inventory.Min.Lib;
 	, nameof(Item.CategoryId)
 	, nameof(Item.PurchaseDate)
 	, nameof(Item.CurrencyId)
+	, nameof(Item.PurchasePrice)
+	, nameof(Item.SellPrice)
+	, nameof(Item.ImagePath)
+	, nameof(Item.LengthUnitId)
+	, nameof(Item.Length)
+	, nameof(Item.Heigth)
+	, nameof(Item.Depth)
+	, nameof(Item.Diameter)
+	, nameof(Item.VolumeUnitId)
+	, nameof(Item.Volume)
+	, nameof(Item.Mass)
+	, nameof(Item.MassUnitId)
+	, nameof(Item.TagId)
+	, nameof(Item.StateId)
+	, nameof(Item.ParentId)
     , ErrorMessage = UpdateError)]
 public class ItemUpdateArgs
     : Model
@@ -21,8 +36,13 @@ public class ItemUpdateArgs
 {
     private const string UpdateError = 
         "You must supply Name or Description or Quantity"
-		+ "or CategoryId or PurchaseDate or CurrencyId";
-
+		+ "or CategoryId or PurchaseDate or CurrencyId"
+		+ "or PurchasePrice or ImagePath or LengthUnitId"
+		+ "or Length or Heigth or Depth"
+		+ "or Diameter or VolumeUnitId or Volume"
+		+ "or Mass or MassUnitId or TagId"
+		+ "or StateId or ParentId";
+		
     [Operand(
         "id")
         , Required
@@ -46,7 +66,8 @@ public class ItemUpdateArgs
 	
 	[Option(
         'c'
-        , "categoryId")]
+        , "categoryId")
+		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? CategoryId { get; set; }
 	
 	[Option(
@@ -57,6 +78,94 @@ public class ItemUpdateArgs
 	
 	[Option(
         'u'
-        , "currencyId")]
+        , "currencyId")
+		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? CurrencyId { get; set; }
+	
+	[Option(
+        'r'
+        , "purchasePrice")]
+    public decimal? PurchasePrice { get; set; }
+	
+	[Option(
+        's'
+        , "sellPrice")]
+    public decimal? SellPrice { get; set; }
+	
+	[Option(
+        'i'
+        , "imagePath")]
+    public string? ImagePath { get; set; }
+	
+	[Option(
+        'l'
+        , "lengthUnitId")
+		, Range(IdMin, IdMax, ErrorMessage = IdError)]
+    public int? LengthUnitId { get; set; }
+	
+	[Option(
+        'e'
+        , "length")
+		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
+    public double? Length { get; set; }
+	
+	[Option(
+        'g'
+        , "heigth")
+		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
+    public double? Heigth { get; set; }
+	
+	[Option(
+        't'
+        , "depth")
+		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
+    public double? Depth { get; set; }
+	
+	[Option(
+        'a'
+        , "diameter")
+		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
+    public double? Diameter { get; set; }
+	
+	[Option(
+        'v'
+        , "volumeUnitId")
+		, Range(IdMin, IdMax, ErrorMessage = IdError)]
+    public double? VolumeUnitId { get; set; }
+	
+	[Option(
+        'o'
+        , "volume")
+		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
+    public double? Volume { get; set; }
+	
+	[Option(
+        'm'
+        , "mass")
+		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
+    public double? Mass { get; set; }
+	
+	[Option(
+        'x'
+        , "massUnitId")
+		, Range(IdMin, IdMax, ErrorMessage = IdError)]
+    public int? MassUnitId { get; set; }
+	
+	[Option(
+        'z'
+        , "tagId")
+		, Range(IdMin, IdMax, ErrorMessage = IdError)]
+    public int? TagId { get; set; }
+	
+	[Option(
+        'b'
+        , "stateId")
+		, Range(IdMin, IdMax, ErrorMessage = IdError)]
+    public int? StateId { get; set; }
+	
+	[Option(
+        'f'
+        , "parentId")
+		, Range(IdMin, IdMax, ErrorMessage = IdError)]
+    public int? ParentId { get; set; }
 }
