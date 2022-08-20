@@ -23,6 +23,7 @@ public class AppCommands
         Container
             .RegisterSingleton<IReadCommand<ItemFilterArgs>, ItemReadCommand>()
             .RegisterSingleton<IInsertCommand<ItemInsertArgs>, ItemInsertCommand>()
-            .RegisterSingleton<IUpdateCommand<ItemUpdateArgs>, ItemUpdateCommand>();
+            .RegisterSingleton<IUpdateCommand<ItemUpdateArgs>, ItemUpdateCommand>()
+            .RegisterSingleton<IDeleteCommand<DeleteArgs>, ItemDeleteCommand>();
     }
 }
