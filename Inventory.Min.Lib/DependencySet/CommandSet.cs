@@ -4,10 +4,10 @@ using Unity;
 
 namespace Inventory.Min.Lib;
 
-public class AppCommands 
+public class CommandSet 
     : UnityDependencySet
 {
-    public AppCommands(
+    public CommandSet(
         IUnityContainer container) 
         : base(container)
     {
@@ -15,16 +15,16 @@ public class AppCommands
 
     public override void Register()
     {
-        RegisterInsertCommand();
-    }
-
-    private void RegisterInsertCommand()
-    {
+        RegisterRead();
         Container
-            //.RegisterSingleton<IReadCommand<ItemFilterArgs>, ItemReadCommand>()
-            .RegisterSingleton<IReadCommand<ItemFilterArgs>, ItemRead2Command>()
             .RegisterSingleton<IInsertCommand<ItemInsertArgs>, ItemInsertCommand>()
             .RegisterSingleton<IUpdateCommand<ItemUpdateArgs>, ItemUpdateCommand>()
             .RegisterSingleton<IDeleteCommand<DeleteArgs>, ItemDeleteCommand>();
+    }
+
+    protected virtual void RegisterRead()
+    {
+        Container
+            .RegisterSingleton<IReadCommand<ItemFilterArgs>, ItemReadCommand>();
     }
 }

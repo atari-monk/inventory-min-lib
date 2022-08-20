@@ -4,10 +4,10 @@ using Unity;
 
 namespace Inventory.Min.Lib;
 
-public class DataFilter 
+public class FilterSet 
     : UnityDependencySet
 {
-    public DataFilter(
+    public FilterSet(
         IUnityContainer container) 
             : base(container)
     {

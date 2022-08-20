@@ -4,10 +4,10 @@ using Unity;
 
 namespace Inventory.Min.Lib;
 
-public class AppMappings 
+public class MappingSet 
     : ModelHelper.AppMappings
 {
-    public AppMappings(
+    public MappingSet(
         IUnityContainer container)
         : base(container)
     {
