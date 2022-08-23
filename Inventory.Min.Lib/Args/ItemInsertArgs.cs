@@ -26,7 +26,7 @@ public class ItemInsertArgs
 	public int? CategoryId { get; set; }
 
     [Option('p', "purchaseDate"
-		, Description = DateFormat)]
+		, Description = DateOnlyFormat)]
 	public DateTime? PurchaseDate { get; set; }
 
     [Option("currencyId")]

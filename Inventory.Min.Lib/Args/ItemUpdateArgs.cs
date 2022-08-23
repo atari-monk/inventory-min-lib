@@ -73,7 +73,7 @@ public class ItemUpdateArgs
 	[Option(
         'p'
         , "purchaseDate"
-		, Description = DateFormat)]
+		, Description = DateOnlyFormat)]
     public DateTime? PurchaseDate { get; set; }
 	
 	[Option(

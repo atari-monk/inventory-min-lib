@@ -8,6 +8,11 @@ public class ItemFilterArgs
     , IArgumentModel
 {
     [Option(
+        shortName: 't'
+        , longName: "table")]
+    public string? Table { get; set; }
+
+    [Option(
         shortName: 'p'
         , longName: "purchaseDate")]
     public DateTime? PurchaseDate { get; set; }

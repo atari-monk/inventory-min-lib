@@ -6,19 +6,19 @@ using Serilog;
 
 namespace Inventory.Min.Lib;
 
-public class ItemRead2Command
-    : ReadCommand<IInventoryUnitOfWork, Item, ItemFilterArgs>
+public class ItemReadBetterTableCommand
+    : TableReadCommand<IInventoryUnitOfWork, Item, ItemFilterArgs>
 {
     private readonly IDictionary<string, IBetterTable<Item>> tables;
     private readonly IFilterFactory<Item, ItemFilterArgs> filterFactory;
 
-    public ItemRead2Command(
+    public ItemReadBetterTableCommand(
         IInventoryUnitOfWork unitOfWork
         , IOutput output
         , ILogger log
         , IDictionary<string, IBetterTable<Item>> tables
         , IFilterFactory<Item, ItemFilterArgs> filterFactory)
-            : base(unitOfWork, output, log, tables["ItemTable"])
+            : base(unitOfWork, output, log, tables)
     {
         this.tables = tables;
         this.filterFactory = filterFactory;
@@ -28,5 +28,10 @@ public class ItemRead2Command
     {
         return UnitOfWork.Item.GetItem(
             filterFactory.GetFilter(model)).ToList();
+    }
+
+    protected override string GetTableKey(ItemFilterArgs model)
+    {
+        return model.Table ?? "default";
     }
 }

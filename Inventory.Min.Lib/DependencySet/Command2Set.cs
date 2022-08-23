@@ -15,6 +15,6 @@ public class Command2Set
     protected override void RegisterRead()
     {
         Container
-            .RegisterSingleton<IReadCommand<ItemFilterArgs>, ItemRead2Command>();
+            .RegisterSingleton<IReadCommand<ItemFilterArgs>, ItemReadBetterTableCommand>();
     }
 }
