@@ -3,10 +3,10 @@ using Unity;
 
 namespace Inventory.Min.Lib;
 
-public class Command2Set
+public class CommandBetterTableSet
     : CommandSet
 {
-    public Command2Set(
+    public CommandBetterTableSet(
         IUnityContainer container) 
         : base(container)
     {
