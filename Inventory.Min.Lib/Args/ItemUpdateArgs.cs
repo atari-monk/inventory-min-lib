@@ -9,7 +9,8 @@ namespace Inventory.Min.Lib;
 [AtLeastOneProperty(
 	nameof(Item.Name)
     , nameof(Item.Description)
-	, nameof(Item.Quantity)
+	, nameof(Item.InitialCount)
+	, nameof(Item.CurrentCount)
 	, nameof(Item.CategoryId)
 	, nameof(Item.PurchaseDate)
 	, nameof(Item.CurrencyId)
@@ -35,7 +36,8 @@ public class ItemUpdateArgs
         , IId
 {
     private const string UpdateError = 
-        "You must supply Name or Description or Quantity"
+        "You must supply Name or Description or InitialCount"
+        + " or CurrentCount"
 		+ "or CategoryId or PurchaseDate or CurrencyId"
 		+ "or PurchasePrice or ImagePath or LengthUnitId"
 		+ "or Length or Heigth or Depth"
@@ -51,19 +53,27 @@ public class ItemUpdateArgs
 
     [Option(
         'n'
-        , "name")]
+        , "name")
+        , MaxLength(NameMax)]
     public string? Name { get; set; }
 
     [Option(
         'd'
-        , "desc")]
+        , "desc")
+        , MaxLength(DescriptionMax)]
     public string? Description { get; set; }
 	
 	[Option(
         'q'
-        , "quantity")]
-    public int? Quantity { get; set; }
+        , "initialCount")
+        , Range(CountMin, CountMax, ErrorMessage = CountError)]
+    public int? InitialCount { get; set; }
 	
+    [Option(
+        "currentCount")
+        , Range(CountMin, CountMax, ErrorMessage = CountError)]
+    public int? CurrentCount { get; set; }
+
 	[Option(
         'c'
         , "categoryId")
@@ -89,7 +99,8 @@ public class ItemUpdateArgs
 	
 	[Option(
         's'
-        , "sellPrice")]
+        , "sellPrice"
+        , Description = DateOnlyFormat)]
     public decimal? SellPrice { get; set; }
 	
 	[Option(
