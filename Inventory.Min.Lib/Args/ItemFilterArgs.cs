@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using CommandDotNet;
 using ModelHelper;
 
@@ -7,6 +8,12 @@ public class ItemFilterArgs
     : Model
     , IArgumentModel
 {
+    [Option(
+        shortName: 'i'
+        , longName: "Id")
+        , Range(IdMin, IdMax, ErrorMessage = IdError)]
+    public int? Id { get; set; }
+
     [Option(
         shortName: 't'
         , longName: "table")]

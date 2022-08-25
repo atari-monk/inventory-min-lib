@@ -21,7 +21,11 @@ public class ItemFilter
         ItemFilterArgs filterArgs)
     {
         SetFilter(filterArgs);
-        return GetFilterByPurchaseDate();
+        if (FilterArgs.Id.HasValue) 
+            return GetFilterById();
+        if (FilterArgs.PurchaseDate.HasValue) 
+            return GetFilterByPurchaseDate();
+        return item => true;
     }
 
     private void SetFilter(ItemFilterArgs filterArgs)
@@ -29,12 +33,16 @@ public class ItemFilter
         this.filterArgs = filterArgs;
     }
 
+    private Expression<Func<Item, bool>> GetFilterById()
+    {
+        var id = FilterArgs.Id!.Value;
+        return item => item.Id == id
+            || (item.ParentId.HasValue && item.ParentId == id);
+    }    
+
     private Expression<Func<Item, bool>> GetFilterByPurchaseDate()
     {
-        if (FilterArgs.PurchaseDate.HasValue) 
-            return item => item.PurchaseDate.HasValue
-                && item.PurchaseDate.Value.Date.Equals(
-                    FilterArgs.PurchaseDate.Value.Date);
-        return item => true;
-    }    
+        return item => item.PurchaseDate!.Value.Date.Equals(
+            FilterArgs.PurchaseDate!.Value.Date);
+    }
 }
