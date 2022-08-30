@@ -8,7 +8,7 @@ public class ItemInsertArgs
     : Model
     , IArgumentModel
 {
-	[Operand(nameof(Name))
+    [Operand(nameof(Name))
         , Required
         , MaxLength(NameMax)]
 	public string? Name { get; set; }
@@ -35,7 +35,7 @@ public class ItemInsertArgs
 
     [Option("currencyId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
-	public int? CurrencyId { get; set; } = 1;
+	public int? CurrencyId { get; set; }
 
     [Option('u', "purchasePrice")]
 	public decimal? PurchasePrice { get; set; }
@@ -48,7 +48,7 @@ public class ItemInsertArgs
 
     [Option("lengthUnitId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
-	public int? LengthUnitId { get; set; } = 1;
+	public int? LengthUnitId { get; set; }
 
     [Option('l', "length")
         , Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
@@ -68,7 +68,7 @@ public class ItemInsertArgs
 
     [Option("volumeUnitId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
-	public int? VolumeUnitId { get; set; } = 1;
+	public int? VolumeUnitId { get; set; }
 
     [Option('v', "volume")
         , Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
@@ -92,5 +92,5 @@ public class ItemInsertArgs
 
     [Option("massUnitId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
-	public int? MassUnitId { get; set; } = 3;
+	public int? MassUnitId { get; set; }
 }

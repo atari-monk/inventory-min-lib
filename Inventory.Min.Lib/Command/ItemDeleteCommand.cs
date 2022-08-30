@@ -20,5 +20,5 @@ public class ItemDeleteCommand
         UnitOfWork.Item.Delete(entity);
 
     protected override Item GetById(int id) =>
-        UnitOfWork.Item.GetByID(id);
+        UnitOfWork.Item.GetById(id) ?? new Item();
 }

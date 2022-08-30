@@ -17,5 +17,5 @@ public class ItemUpdateCommand
     }
 
     protected override Item GetById(int id) =>
-        UnitOfWork.Item.GetByID(id);
+        UnitOfWork.Item.GetById(id) ?? new Item();
 }
