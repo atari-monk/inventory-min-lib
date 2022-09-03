@@ -13,7 +13,7 @@ public class ItemInsertArgs
         , MaxLength(NameMax)]
 	public string? Name { get; set; }
 
-    [Option('d', "description")
+    [Option('d', "desc")
         , MaxLength(DescriptionMax)]
     public string? Description { get; set; }
 
@@ -33,11 +33,11 @@ public class ItemInsertArgs
 		, Description = DateOnlyFormat)]
 	public DateTime? PurchaseDate { get; set; }
 
-    [Option("currencyId")
+    [Option('u', "currencyId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
 	public int? CurrencyId { get; set; }
 
-    [Option('u', "purchasePrice")]
+    [Option('r', "purchasePrice")]
 	public decimal? PurchasePrice { get; set; }
 
     [Option('s', "sellPrice")]
@@ -58,11 +58,11 @@ public class ItemInsertArgs
         , Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
 	public double? Heigth { get; set; }
 
-    [Option("depth")
+    [Option('t', "depth")
         , Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
 	public double? Depth { get; set; }
 
-    [Option("diameter")
+    [Option('a', "diameter")
         , Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
 	public double? Diameter { get; set; }
 
@@ -74,23 +74,23 @@ public class ItemInsertArgs
         , Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
 	public double? Volume { get; set; }
 
-    [Option('t', "tagId")
+    [Option('z', "tagId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
 	public int? TagId { get; set; }
 
-    [Option('a', "stateId")
+    [Option('g', "stateId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
 	public int? StateId { get; set; }
 
-    [Option('r', "parentId")
+    [Option('f', "parentId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
 	public int? ParentId { get; set; }
 
-    [Option("mass")
+    [Option('m', "mass")
         , Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
 	public double? Mass { get; set; }
 
-    [Option("massUnitId")
+    [Option('x', "massUnitId")
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
 	public int? MassUnitId { get; set; }
 }

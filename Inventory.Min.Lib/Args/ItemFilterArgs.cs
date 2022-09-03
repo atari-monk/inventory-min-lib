@@ -14,9 +14,8 @@ public class ItemFilterArgs
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? Id { get; set; }
 
-    [Option(
-        shortName: 't'
-        , longName: "table")]
+    [Option(shortName: 't', longName: "table"
+        , Description = "DefaultItemTable, SizeItemTable, BasicItemTable, ItemTable")]
     public string? Table { get; set; }
 
     [Option(

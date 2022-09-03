@@ -45,138 +45,93 @@ public class ItemUpdateArgs
 		+ "or Mass or MassUnitId or TagId"
 		+ "or StateId or ParentId";
 		
-    [Operand(
-        "id")
+    [Operand("id")
         , Required
         , Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int Id { get; set; }
 
-    [Option(
-        'n'
-        , "name")
+    [Option('n', "name")
         , MaxLength(NameMax)]
     public string? Name { get; set; }
 
-    [Option(
-        'd'
-        , "desc")
+    [Option( 'd', "desc")
         , MaxLength(DescriptionMax)]
     public string? Description { get; set; }
 	
-	[Option(
-        'q'
-        , "initialCount")
+	[Option('q', "initialCount")
         , Range(CountMin, CountMax, ErrorMessage = CountError)]
     public int? InitialCount { get; set; }
 	
-    [Option(
-        "currentCount")
+    [Option("currentCount")
         , Range(CountMin, CountMax, ErrorMessage = CountError)]
     public int? CurrentCount { get; set; }
 
-	[Option(
-        'c'
-        , "categoryId")
+	[Option('c', "categoryId")
 		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? CategoryId { get; set; }
 	
-	[Option(
-        'p'
-        , "purchaseDate"
+	[Option('p', "purchaseDate"
 		, Description = DateOnlyFormat)]
     public DateTime? PurchaseDate { get; set; }
 	
-	[Option(
-        'u'
-        , "currencyId")
+	[Option('u', "currencyId")
 		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? CurrencyId { get; set; }
 	
-	[Option(
-        'r'
-        , "purchasePrice")]
+	[Option('r', "purchasePrice")]
     public decimal? PurchasePrice { get; set; }
 	
-	[Option(
-        's'
-        , "sellPrice"
-        , Description = DateOnlyFormat)]
+	[Option('s', "sellPrice")]
     public decimal? SellPrice { get; set; }
 	
-	[Option(
-        'i'
-        , "imagePath")]
+	[Option('i', "imagePath")]
     public string? ImagePath { get; set; }
 	
-	[Option(
-        'l'
-        , "lengthUnitId")
+	[Option("lengthUnitId")
 		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? LengthUnitId { get; set; }
 	
-	[Option(
-        'e'
-        , "length")
+	[Option('l', "length")
 		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
     public double? Length { get; set; }
 	
-	[Option(
-        'g'
-        , "heigth")
+	[Option('e', "heigth")
 		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
     public double? Heigth { get; set; }
 	
-	[Option(
-        't'
-        , "depth")
+	[Option('t', "depth")
 		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
     public double? Depth { get; set; }
 	
-	[Option(
-        'a'
-        , "diameter")
+	[Option('a', "diameter")
 		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
     public double? Diameter { get; set; }
 	
-	[Option(
-        'v'
-        , "volumeUnitId")
+	[Option("volumeUnitId")
 		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public double? VolumeUnitId { get; set; }
 	
-	[Option(
-        'o'
-        , "volume")
+	[Option('v', "volume")
 		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
     public double? Volume { get; set; }
 	
-	[Option(
-        'm'
-        , "mass")
+	[Option('m', "mass")
 		, Range(LengthMin, LengthMax, ErrorMessage = LengthError)]
     public double? Mass { get; set; }
 	
-	[Option(
-        'x'
-        , "massUnitId")
+	[Option('x', "massUnitId")
 		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? MassUnitId { get; set; }
 	
-	[Option(
-        'z'
-        , "tagId")
+	[Option('z', "tagId")
 		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? TagId { get; set; }
 	
-	[Option(
-        'b'
-        , "stateId")
+	[Option('g', "stateId")
 		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? StateId { get; set; }
 	
-	[Option(
-        'f'
-        , "parentId")
+	[Option('f', "parentId")
 		, Range(IdMin, IdMax, ErrorMessage = IdError)]
     public int? ParentId { get; set; }
 }
