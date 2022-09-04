@@ -15,7 +15,7 @@ public class ItemFilterArgs
     public int? Id { get; set; }
 
     [Option(shortName: 't', longName: "table"
-        , Description = "DefaultItemTable, SizeItemTable, BasicItemTable, ItemTable")]
+        , Description = "Basic, Medium, Size, Verbose")]
     public string? Table { get; set; }
 
     [Option(

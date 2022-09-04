@@ -32,6 +32,6 @@ public class ItemReadBetterTableCommand
 
     protected override string GetTableKey(ItemFilterArgs model)
     {
-        return model.Table ?? "DefaultItemTable";
+        return model.Table ?? "Verbose";
     }
 }
