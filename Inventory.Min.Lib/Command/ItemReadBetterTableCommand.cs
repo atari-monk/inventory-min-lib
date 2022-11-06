@@ -26,7 +26,7 @@ public class ItemReadBetterTableCommand
 
     protected override List<Item> Get(ItemFilterArgs model)
     {
-        return UnitOfWork.Item.GetItem(
+        return UnitOfWork.ItemSync.GetItem(
             filterFactory.GetFilter(model)).ToList();
     }
 
